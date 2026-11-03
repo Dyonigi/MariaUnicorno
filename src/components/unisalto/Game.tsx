@@ -141,7 +141,7 @@ export function Game() {
         <section className="card">
           <img
             className="prize"
-            src="/game/victory.jpg"
+            src={`${import.meta.env.BASE_URL}game/victory.jpg`}
             alt="L'unicorno bacia sulla guancia un brontosauro verde, in un prato fiorito"
           />
           <h2>Premio</h2>
