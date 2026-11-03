@@ -73,11 +73,12 @@ const THEMES = [
   },
 ] as const;
 
+const BASE = import.meta.env.BASE_URL;
 const OBSTACLES = [
-  { src: "/game/crystal.png", x: 127, y: 14, w: 66, h: 294 },
-  { src: "/game/candy.png", x: 62, y: 137, w: 196, h: 171 },
-  { src: "/game/bush.png", x: 56, y: 133, w: 207, h: 175 },
-  { src: "/game/mushroom.png", x: 74, y: 106, w: 172, h: 202 },
+  { src: `${BASE}game/crystal.png`, x: 127, y: 14, w: 66, h: 294 },
+  { src: `${BASE}game/candy.png`, x: 62, y: 137, w: 196, h: 171 },
+  { src: `${BASE}game/bush.png`, x: 56, y: 133, w: 207, h: 175 },
+  { src: `${BASE}game/mushroom.png`, x: 74, y: 106, w: 172, h: 202 },
 ] as const;
 
 type PoolItem = { active: boolean; x: number; kind: number; y: number };
@@ -162,8 +163,8 @@ export class Runner {
     const ctx = canvas.getContext("2d");
     if (!ctx) throw new Error("Canvas non disponibile");
     this.ctx = ctx;
-    this.runImgs = [1, 2, 3, 4].map((n) => loadImage(`/game/run-${n}.png`));
-    this.jumpImgs = [1, 2, 3, 4].map((n) => loadImage(`/game/jump-${n}.png`));
+    this.runImgs = [1, 2, 3, 4].map((n) => loadImage(`${BASE}game/run-${n}.png`));
+    this.jumpImgs = [1, 2, 3, 4].map((n) => loadImage(`${BASE}game/jump-${n}.png`));
     this.obsImgs = OBSTACLES.map((o) => loadImage(o.src));
     try {
       this.best = Number(localStorage.getItem(BEST_KEY) || 0) || 0;
@@ -197,6 +198,10 @@ export class Runner {
 
   pointerDown() {
     unlockAudio();
+    if (this.phase === "menu") {
+      this.play();
+      return; // esce senza far saltare
+    }
     this.act();
   }
 

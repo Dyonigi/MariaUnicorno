@@ -20,6 +20,19 @@ export function Game() {
   const [snap, setSnap] = useState<Snap>(INITIAL);
 
   useEffect(() => {
+    const startOnFirstTouch = () => {
+      if (snap.phase === "menu") {
+        runnerRef.current?.play();
+      }
+    };
+    window.addEventListener("pointerdown", startOnFirstTouch, { once: true });
+    window.addEventListener("keydown", startOnFirstTouch, { once: true });
+    return () => {
+      window.removeEventListener("pointerdown", startOnFirstTouch);
+      window.removeEventListener("keydown", startOnFirstTouch);
+    };
+  }, [snap.phase]);
+  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const runner = new Runner(canvas, setSnap);
@@ -87,23 +100,6 @@ export function Game() {
             <p className="hint">Tieni premuto per saltare più in alto</p>
           ) : null}
         </div>
-      ) : null}
-
-      {snap.phase === "menu" ? (
-        <section className="card">
-          <h1>UniSalto</h1>
-          <p className="lede">
-            L'unicorno corre da solo. Tu lo fai saltare sopra cristalli, caramelle e fiori.
-          </p>
-          <p>Due prati e, se arrivi in fondo, un bacio al brontosauro verde.</p>
-          <p className="hint">Spazio, freccia su, o un tocco.</p>
-          {snap.best > 0 ? <p className="record">Record {snap.best} m</p> : null}
-          <div className="actions">
-            <button type="button" className="btn" data-testid="play" onClick={() => runnerRef.current?.play()}>
-              Gioca
-            </button>
-          </div>
-        </section>
       ) : null}
 
       {snap.phase === "clear" ? (

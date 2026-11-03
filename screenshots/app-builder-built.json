@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "UniSalto",
+      "hasCanvas": true,
+      "bodyTextLen": 190,
+      "bodyTextHash": "39bb4a209e093821a8da8b88b4ddc23d8f933514a51abb958d4cd928e4ecca25",
+      "bodyTextPrefix": "UniSalto L'unicorno corre da solo. Tu lo fai saltare sopra crist",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "UniSalto",
+      "hasCanvas": true,
+      "bodyTextLen": 190,
+      "bodyTextHash": "39bb4a209e093821a8da8b88b4ddc23d8f933514a51abb958d4cd928e4ecca25",
+      "bodyTextPrefix": "UniSalto L'unicorno corre da solo. Tu lo fai saltare sopra crist",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
