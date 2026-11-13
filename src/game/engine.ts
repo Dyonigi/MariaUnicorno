@@ -30,25 +30,25 @@ const FEET = 308;
 const UNI_D = 210;
 const OBS_D = 132;
 const PX_PER_M = 38;
-const GRAVITY = 1900;
-const JUMP_V = 640;
+const GRAVITY = 1600;
+const JUMP_V = 800;
 const SHORT_V = 520;
 const BEST_KEY = "unisalto-record";
 
 const LEVELS = [
   {
     name: "Prato caramella",
-    goal: 160,
+    goal: 140,
     speed: 300,
     gap: 1.22,
     weights: [1, 3, 4, 3],
   },
   {
     name: "Bosco di cristallo",
-    goal: 190,
+    goal: 160,
     speed: 445,
-    gap: 0.96,
-    weights: [4, 2, 2, 3],
+    gap: 1,
+    weights: [3, 2, 2, 4],
   },
 ] as const;
 

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:local": "powershell -Command \"Copy-Item -Path 'index.html.bak' -Destination 'index.html' -Force; npm run dev\"",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
